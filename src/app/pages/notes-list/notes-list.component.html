@@ -1,0 +1,24 @@
+<div class="container mt-2">
+  <div class="row g-3">
+    @for (note of notes(); track note.id) {
+    <div class="col-12 col-md-4">
+      <div
+        class="card h-100 position-relative"
+        (click)="handleDetailClick(note.id)"
+        style="cursor: pointer"
+      >
+        <div
+          class="position-absolute top-0 end-0 m-2 d-flex gap-1"
+          (click)="$event.stopPropagation()"
+        >
+          <app-button type="delete" (btnClicked)="handleDeleteNotes(note.id)" />
+        </div>
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ note.title }}</h5>
+          <p class="card-text flex-grow-1">{{ note.description }}</p>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

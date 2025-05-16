@@ -1,0 +1,31 @@
+<div class="container mt-2 d-flex justify-content-center">
+  <div style="width: 80vh">
+    <h2 class="text-center">CREATE NOTE</h2>
+    <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+      {{ errorMessage }}
+    </div>
+    <form [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          formControlName="title"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          class="form-control"
+          id="description"
+          formControlName="description"
+          rows="3"
+        ></textarea>
+      </div>
+      <div class="mb-3 d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary mb-3">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
